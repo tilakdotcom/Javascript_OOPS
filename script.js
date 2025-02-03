@@ -1,29 +1,15 @@
-// const createUser = (name, email, age) => {
-//   const user = {
-//     name,
-//     email,
-//     age,
-//     userBirthYear: common.userBirthYear,
-//   };
+class createUser {
+  #age
+  constructor(name, email, age) {
+    this.name = name;
+    this.email = email;
+    this.#age = age;
+  }
 
-//   return user;
-// };
-
-// const common = {
-//   userBirthYear() {
-//     return new Date().getFullYear() - this.age;
-//   },
-// };
-
-function createUser(name, email, age) {
-  this.name = name;
-  this.email = email;
-  this.age = age;
+  userBirthYear() {
+    return new Date().getFullYear() - this.#age;
+  }
 }
-
-createUser.prototype.userBirthYear = function () {
-  return new Date().getFullYear() - this.age;
-};
 
 const user1 = new createUser("anshu", "anhu@gmail.com", 20);
 
