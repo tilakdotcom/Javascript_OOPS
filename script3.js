@@ -6,13 +6,6 @@ class createUser {
     this.#age = age;
   }
 
-  static {
-    this.hi = "It is only accessible on class only"
-    this.sayHi = () => {
-      console.log("Hello World");
-    }
-  }
-
   userBirthYear() {
     return new Date().getFullYear() - this.#age;
   }
