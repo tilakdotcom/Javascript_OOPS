@@ -1,32 +1,30 @@
+// const createUser = (name, email, age) => {
+//   const user = {
+//     name,
+//     email,
+//     age,
+//     userBirthYear: common.userBirthYear,
+//   };
 
-// // obejct concept
-// const user = {
-//   name: "anshu",
-//   email: "anshu@gmail.com",
-//   age: 22,
-//   userBirthYear: function () {
-//     return new Date().getFullYear() - user.age;
+//   return user;
+// };
+
+// const common = {
+//   userBirthYear() {
+//     return new Date().getFullYear() - this.age;
 //   },
 // };
 
+function createUser(name, email, age) {
+  this.name = name;
+  this.email = email;
+  this.age = age;
+}
 
-//work easy
-const createUser = (name, email, age) => {
-  const user = {
-    name,
-    email,
-    age,
-    userBirthYear: function () {
-      return new Date().getFullYear() - user.age;
-    },
-  };
-
-  return user;
+createUser.prototype.userBirthYear = function () {
+  return new Date().getFullYear() - this.age;
 };
 
+const user1 = new createUser("anshu", "anhu@gmail.com", 20);
 
-const user1 = createUser("anshu","anhu@gmail.com", 20)
-
-const user2 = createUser("ash","anhu@gmail.com",23)
-
-
+const user2 = new createUser("ash", "ash@gmail.com", 23);
