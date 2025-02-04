@@ -15,7 +15,6 @@ class User {
   set customMessage(name) {
     console.log(`name updated: ${name}`);
     this.name = name;
-    
   }
 
   updateEmail(newEmail) {
@@ -23,12 +22,35 @@ class User {
   }
 
   displayUserDetails() {
-    return `Name: ${this.name}, Email: ${this.email}, Age: ${this.age}, Birth Year: ${this.userBirthYear()}`;
+    return `Name: ${this.name}, Email: ${this.email}, Age: ${
+      this.age
+    }, Birth Year: ${this.userBirthYear()}`;
   }
 }
 
-const user1 = new User("Anshu", "anshu@gmail.com", 20);
-const user2 = new User("Ash", "ash@gmail.com", 23);
+class Student extends User {
+  constructor(name, email, age, grade) {
+    super(name, email, age);
+    this.grade = grade;
+  }
+  displayStudentDetails() {
+    return `${super.displayUserDetails()}, Grade: ${this.grade}`;
+  }
+  set setGrade(grade) {
+    if (grade >= 0 && grade <= 100) {
+      this.grade.push(grade)
 
-console.log(user1.customMessage);
-console.log(user2.displayUserDetails());
+    } else {
+      console.log("Invalid grade. Grade should be between 0 and 100.");
+    }
+
+  }
+  updateGrade(newGrade) {
+    this.grade = newGrade;
+  }
+  get averageGrade() {;
+    return this.grade.reduce((total, grade) => total + grade, 0) / this.grade.length;
+  }
+}
+
+const student1 = new Student("Anshu", "anshu@gmail.com", 20, [85, 90, 80])
